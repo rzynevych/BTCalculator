@@ -1,0 +1,55 @@
+.page_container {
+    width: 80%;
+    height: 80%;
+    overflow-y: auto;
+}
+
+.date_input__label {
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+}
+
+.date_input__input {
+    margin-left: 1em;
+}
+
+.days_list {
+    border: 1px solid black;
+    height: 10em;
+    width: 10em;
+    overflow-y: auto;
+}
+
+.receipt_list {
+    border: 1px solid black;
+    height: 15em;
+    width: 20em;
+    overflow-y: auto;
+}
+
+.calculateButton {
+    display: block;
+    margin-top: 1em;
+}
+
+.error_message {
+    color: red;
+}
+
+.result_field__container {
+    display: flex;
+    align-items: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.result_field {
+    display: inline-block;
+    height: 1.5em;
+    width: fit-content;
+    border: 1px solid black;
+    margin-left: 0.5em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}

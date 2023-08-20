@@ -1,0 +1,23 @@
+.receipt__container {
+    margin: 0.5em;
+    border-bottom: 1px solid black;
+    padding-bottom: 0.5em;
+}
+
+.receipt__name_input {
+    margin-left: 0.5em;
+}
+
+.receipt__limit_input_left {
+    direction: rtl;
+    margin-left: 0.5em;
+    width: 5em;
+}
+
+.receipt__limit_input_right {
+    width: 2em;
+}
+
+.receipt__remove_button {
+    margin-left: 4em;
+}

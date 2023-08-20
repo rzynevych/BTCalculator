@@ -1,0 +1,28 @@
+.page_container {
+    width: 80%;
+    height: 80%;
+    overflow-y: auto;
+}
+
+.receipt_type_list {
+    border: 1px solid black;
+    height: 15em;
+    width: 20em;
+    overflow-y: auto;
+}
+
+.amount_input_label {
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+}
+
+.amount_input_left {
+    direction: rtl;
+    margin-left: 0.5em;
+    width: 5em;
+}
+
+.amount_input_right {
+    width: 2em;
+}

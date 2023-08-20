@@ -1,0 +1,23 @@
+.receipt__container {
+    margin: 0.5em;
+    border-bottom: 1px solid black;
+    padding-bottom: 0.5em;
+}
+
+.receipt__type_select {
+    margin-left: 0.5em;
+}
+
+.receipt__amount_input {
+    direction: rtl;
+    margin-left: 0.5em;
+    width: 5em;
+}
+
+.receipt__cent_amount_input {
+    width: 2em;
+}
+
+.receipt__remove_button {
+    margin-left: 2em;
+}
