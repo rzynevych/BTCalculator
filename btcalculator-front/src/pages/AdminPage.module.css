@@ -26,3 +26,8 @@
 .amount_input_right {
     width: 2em;
 }
+
+.back_link {
+    display: block;
+    margin-top: 2em;
+}

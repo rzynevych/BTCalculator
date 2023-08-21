@@ -20,6 +20,7 @@ public class ApplicationDataServiceTest {
     @Test
     public void changeValuesAndNewReceiptTypeTest() throws JsonProcessingException {
         String json = "{\"dailyAllowance\":{\"intPart\":\"18\",\"centPart\":\"55\"},\"mileageAllowance\":{\"intPart\":\"0\",\"centPart\":\"4\"},\"mileageReimbursementLimit\":{\"intPart\":\"400\",\"centPart\":\"00\"},\"totalReimbursementLimit\":{\"intPart\":\"15000\",\"centPart\":\"00\"},\"receiptTypes\":[{\"name\":\"plane ticket\",\"limit\":{\"intPart\":\"1700\",\"centPart\":\"00\"}},{\"name\":\"bus ticket\",\"limit\":{\"intPart\":\"50\",\"centPart\":\"00\"}},{\"name\":\"taxi\",\"limit\":{\"intPart\":\"70\",\"centPart\":\"00\"}},{\"name\":\"hotel\",\"limit\":{\"intPart\":\"2500\",\"centPart\":\"00\"}},{\"name\":\"new\",\"limit\":{\"intPart\":\"10\",\"centPart\":\"55\"}}]}";
+        String jsonBackup = "{\"dailyAllowance\":{\"intPart\":\"15\",\"centPart\":\"00\"},\"mileageAllowance\":{\"intPart\":\"0\",\"centPart\":\"3\"},\"mileageReimbursementLimit\":{\"intPart\":\"300\",\"centPart\":\"00\"},\"totalReimbursementLimit\":{\"intPart\":\"10000\",\"centPart\":\"00\"},\"receiptTypes\":[{\"name\":\"plane ticket\",\"limit\":{\"intPart\":\"2000\",\"centPart\":\"00\"}},{\"name\":\"bus ticket\",\"limit\":{\"intPart\":\"100\",\"centPart\":\"00\"}},{\"name\":\"taxi\",\"limit\":{\"intPart\":\"100\",\"centPart\":\"00\"}},{\"name\":\"hotel\",\"limit\":{\"intPart\":\"2000\",\"centPart\":\"00\"}}]}";
         ApplicationDataDto dto = objectMapper.readValue(json, ApplicationDataDto.class);
         ApplicationDataService service = new ApplicationDataService();
         Status status = service.setApplicationData(dto);
@@ -35,11 +36,16 @@ public class ApplicationDataServiceTest {
         assertEquals(0, applicationData.getMileageAllowance().compareTo(new BigDecimal("0.4")));
         assertEquals(0, applicationData.getMileageReimbursementLimit().compareTo(new BigDecimal("400")));
         assertEquals(0, applicationData.getTotalReimbursementLimit().compareTo(new BigDecimal("15000")));
+
+        ApplicationDataDto dtoBackup = objectMapper.readValue(jsonBackup, ApplicationDataDto.class);
+        Status statusBackup = service.setApplicationData(dtoBackup);
+        assertTrue(statusBackup.isStatus());
     }
 
     @Test
     public void removeReceiptTypeTest() throws JsonProcessingException {
         String json = "{\"dailyAllowance\":{\"intPart\":\"15\",\"centPart\":\"00\"},\"mileageAllowance\":{\"intPart\":\"0\",\"centPart\":\"3\"},\"mileageReimbursementLimit\":{\"intPart\":\"300\",\"centPart\":\"00\"},\"totalReimbursementLimit\":{\"intPart\":\"10000\",\"centPart\":\"00\"},\"receiptTypes\":[{\"name\":\"plane ticket\",\"limit\":{\"intPart\":\"2000\",\"centPart\":\"00\"}},{\"name\":\"taxi\",\"limit\":{\"intPart\":\"100\",\"centPart\":\"00\"}},{\"name\":\"hotel\",\"limit\":{\"intPart\":\"2000\",\"centPart\":\"00\"}}]}";
+        String jsonBackup = "{\"dailyAllowance\":{\"intPart\":\"15\",\"centPart\":\"00\"},\"mileageAllowance\":{\"intPart\":\"0\",\"centPart\":\"3\"},\"mileageReimbursementLimit\":{\"intPart\":\"300\",\"centPart\":\"00\"},\"totalReimbursementLimit\":{\"intPart\":\"10000\",\"centPart\":\"00\"},\"receiptTypes\":[{\"name\":\"plane ticket\",\"limit\":{\"intPart\":\"2000\",\"centPart\":\"00\"}},{\"name\":\"bus ticket\",\"limit\":{\"intPart\":\"100\",\"centPart\":\"00\"}},{\"name\":\"taxi\",\"limit\":{\"intPart\":\"100\",\"centPart\":\"00\"}},{\"name\":\"hotel\",\"limit\":{\"intPart\":\"2000\",\"centPart\":\"00\"}}]}";
         ApplicationDataDto dto = objectMapper.readValue(json, ApplicationDataDto.class);
         ApplicationDataService service = new ApplicationDataService();
         Status status = service.setApplicationData(dto);
@@ -48,5 +54,9 @@ public class ApplicationDataServiceTest {
         Map<String, ReceiptType> receiptTypeMap = applicationData.getReceiptTypes();
         receiptTypeMap.get("bus ticket");
         assertNull(receiptTypeMap.get("bus ticket"));
+
+        ApplicationDataDto dtoBackup = objectMapper.readValue(jsonBackup, ApplicationDataDto.class);
+        Status statusBackup = service.setApplicationData(dtoBackup);
+        assertTrue(statusBackup.isStatus());
     }
 }

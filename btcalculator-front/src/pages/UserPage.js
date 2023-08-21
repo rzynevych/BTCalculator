@@ -2,6 +2,7 @@ import React from 'react';
 import { server_url } from '../utils/config';
 import s from './UserPage.module.css';
 import { withRouter } from '../utils/withRouter';
+import { Link } from 'react-router-dom';
 import Receipt from './Receipt';
 
 class UserPage extends React.Component {
@@ -249,6 +250,7 @@ class UserPage extends React.Component {
                 </div>
                 <button className={s.calculateButton} onClick={this.sendRequest}>
                     {this.state.calculated ? 'Create new reimbursement' : 'Calculate reimbursement'}</button>
+                <Link className={s.back_link} to='/'>Back</Link>
             </div>
         )
     }

@@ -2,6 +2,7 @@ import React from 'react';
 import { server_url } from '../utils/config';
 import s from './AdminPage.module.css';
 import { withRouter } from '../utils/withRouter';
+import { Link } from 'react-router-dom';
 import ReceiptType from './ReceiptType';
 
 class AdminPage extends React.Component {
@@ -180,6 +181,7 @@ class AdminPage extends React.Component {
                     />
                 </label>    
                 <button className={s.save_button} onClick={this.sendRequest}>Save changes</button>
+                <Link className={s.back_link} to='/'>Back</Link>
             </div>
         )
     }

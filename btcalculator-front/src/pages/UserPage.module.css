@@ -53,3 +53,8 @@
     padding-left: 0.5em;
     padding-right: 0.5em;
 }
+
+.back_link {
+    display: block;
+    margin-top: 2em;
+}
